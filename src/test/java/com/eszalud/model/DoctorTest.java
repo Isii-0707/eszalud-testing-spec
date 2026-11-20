@@ -1,0 +1,29 @@
+
+package com.eszalud.model;
+
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+class DoctorTest {
+
+    @Test
+    @DisplayName("Crear un doctor con datos válidos")
+    void shouldCreateDoctorWithValidData() {
+
+        Doctor doctor = new Doctor(
+                "87654321",
+                "Luis",
+                "García",
+                "CMP12345",
+                "CARD001"
+        );
+
+        assertNotNull(doctor);
+        assertEquals("87654321", doctor.getDocumento());
+        assertEquals("Luis", doctor.getNombres());
+        assertEquals("García", doctor.getApellidos());
+        assertEquals("CMP12345", doctor.getColegiatura());
+        assertEquals("CARD001", doctor.getEspecialidad());
+    }
+}
