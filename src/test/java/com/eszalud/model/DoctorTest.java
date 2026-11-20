@@ -64,4 +64,22 @@ class DoctorTest {
     }
 
 
+
+    @Test
+    @DisplayName("Rechazar doctor sin apellidos")
+    void shouldRejectDoctorWithoutLastName() {
+
+        assertThrows(
+                IllegalArgumentException.class,
+                () -> new Doctor(
+                        "87654321",
+                        "Luis",
+                        null,
+                        "CMP12345",
+                        "CARD001"
+                )
+        );
+    }
+
+
 }
