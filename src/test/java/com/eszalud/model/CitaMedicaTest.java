@@ -1,0 +1,40 @@
+package com.eszalud.model;
+
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
+import java.time.LocalDateTime;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+class CitaMedicaTest {
+
+    @Test
+    @DisplayName("Crear una cita médica con datos válidos")
+    void shouldCreateAppointmentWithValidData() {
+        Paciente paciente = new Paciente(
+                "12345678", "Ana", "Pérez", "987654321", "ana@mail.com"
+        );
+
+        Doctor doctor = new Doctor(
+                "87654321", "Luis", "García", "CMP12345", "CARD001"
+        );
+
+        Especialidad especialidad = new Especialidad(
+                "CARD001", "Cardiología"
+        );
+
+        LocalDateTime fechaHora = LocalDateTime.of(2026, 12, 10, 10, 0);
+
+        CitaMedica cita = new CitaMedica(
+                paciente, doctor, especialidad, fechaHora, "PROGRAMADA"
+        );
+
+        assertNotNull(cita);
+        assertEquals(paciente, cita.getPaciente());
+        assertEquals(doctor, cita.getDoctor());
+        assertEquals(especialidad, cita.getEspecialidad());
+        assertEquals(fechaHora, cita.getFechaHora());
+        assertEquals("PROGRAMADA", cita.getEstado());
+    }
+}
