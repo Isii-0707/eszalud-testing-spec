@@ -1,0 +1,42 @@
+package com.eszalud.model;
+
+import java.time.LocalDateTime;
+
+public class CitaMedica {
+
+    private Paciente paciente;
+    private Doctor doctor;
+    private Especialidad especialidad;
+    private LocalDateTime fechaHora;
+    private String estado;
+
+    public CitaMedica(Paciente paciente, Doctor doctor,
+                      Especialidad especialidad, LocalDateTime fechaHora,
+                      String estado) {
+        this.paciente = paciente;
+        this.doctor = doctor;
+        this.especialidad = especialidad;
+        this.fechaHora = fechaHora;
+        this.estado = estado;
+    }
+
+    public Paciente getPaciente() {
+        return paciente;
+    }
+
+    public Doctor getDoctor() {
+        return doctor;
+    }
+
+    public Especialidad getEspecialidad() {
+        return especialidad;
+    }
+
+    public LocalDateTime getFechaHora() {
+        return fechaHora;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+}
