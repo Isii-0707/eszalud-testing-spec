@@ -97,4 +97,18 @@ class CitaMedicaTest {
                 )
         );
     }
+    @Test
+    @DisplayName("Rechazar cita sin estado")
+    void shouldRejectAppointmentWithoutStatus() {
+        assertThrows(
+                IllegalArgumentException.class,
+                () -> new CitaMedica(
+                        new Paciente("12345678", "Ana", "Pérez", "987654321", "ana@mail.com"),
+                        new Doctor("87654321", "Luis", "García", "CMP12345", "CARD001"),
+                        new Especialidad("CARD001", "Cardiología"),
+                        LocalDateTime.of(2026, 12, 10, 10, 0),
+                        null
+                )
+        );
+    }
 }
