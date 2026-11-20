@@ -52,4 +52,19 @@ class CitaMedicaTest {
                 )
         );
     }
+
+    @Test
+    @DisplayName("Rechazar cita sin doctor")
+    void shouldRejectAppointmentWithoutDoctor() {
+        assertThrows(
+                IllegalArgumentException.class,
+                () -> new CitaMedica(
+                        new Paciente("12345678", "Ana", "Pérez", "987654321", "ana@mail.com"),
+                        null,
+                        new Especialidad("CARD001", "Cardiología"),
+                        LocalDateTime.of(2026, 12, 10, 10, 0),
+                        "PROGRAMADA"
+                )
+        );
+    }
 }
