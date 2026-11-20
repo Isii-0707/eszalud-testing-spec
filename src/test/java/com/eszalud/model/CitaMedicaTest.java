@@ -37,4 +37,19 @@ class CitaMedicaTest {
         assertEquals(fechaHora, cita.getFechaHora());
         assertEquals("PROGRAMADA", cita.getEstado());
     }
+
+    @Test
+    @DisplayName("Rechazar cita sin paciente")
+    void shouldRejectAppointmentWithoutPatient() {
+        assertThrows(
+                IllegalArgumentException.class,
+                () -> new CitaMedica(
+                        null,
+                        new Doctor("87654321", "Luis", "García", "CMP12345", "CARD001"),
+                        new Especialidad("CARD001", "Cardiología"),
+                        LocalDateTime.of(2026, 12, 10, 10, 0),
+                        "PROGRAMADA"
+                )
+        );
+    }
 }
