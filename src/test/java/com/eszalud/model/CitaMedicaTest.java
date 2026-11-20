@@ -125,4 +125,29 @@ class CitaMedicaTest {
 
         assertEquals("PROGRAMADA", cita.getEstado());
     }
+
+    @Test
+    @DisplayName("Verificar los atributos de la cita médica")
+    void shouldReturnCorrectAppointmentAttributes() {
+        Paciente paciente = new Paciente(
+                "12345678", "Ana", "Pérez", "987654321", "ana@mail.com"
+        );
+        Doctor doctor = new Doctor(
+                "87654321", "Luis", "García", "CMP12345", "CARD001"
+        );
+        Especialidad especialidad = new Especialidad("CARD001", "Cardiología");
+        LocalDateTime fecha = LocalDateTime.of(2026, 12, 10, 10, 0);
+
+        CitaMedica cita = new CitaMedica(
+                paciente, doctor, especialidad, fecha, "PROGRAMADA"
+        );
+
+        assertAll(
+                () -> assertEquals(paciente, cita.getPaciente()),
+                () -> assertEquals(doctor, cita.getDoctor()),
+                () -> assertEquals(especialidad, cita.getEspecialidad()),
+                () -> assertEquals(fecha, cita.getFechaHora()),
+                () -> assertEquals("PROGRAMADA", cita.getEstado())
+        );
+    }
 }
