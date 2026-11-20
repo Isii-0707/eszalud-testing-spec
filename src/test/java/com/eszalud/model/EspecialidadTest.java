@@ -27,4 +27,17 @@ class EspecialidadTest {
                 () -> new Especialidad("CARD001", null)
         );
     }
+
+    @Test
+    @DisplayName("Verificar los atributos de la especialidad")
+    void shouldReturnCorrectSpecialtyAttributes() {
+        Especialidad especialidad = new Especialidad(
+                "CARD001", "Cardiología"
+        );
+
+        assertAll(
+                () -> assertEquals("CARD001", especialidad.getCodigo()),
+                () -> assertEquals("Cardiología", especialidad.getNombre())
+        );
+    }
 }
