@@ -44,4 +44,25 @@ class PacienteTest {
                 )
         );
     }
+
+
+
+    //3
+
+    @Test
+    @DisplayName("Rechazar paciente sin nombres")
+    void shouldRejectPatientWithoutFirstName() {
+
+        assertThrows(
+                IllegalArgumentException.class,
+                () -> new Paciente(
+                        "12345678",
+                        null,
+                        "Pérez",
+                        "987654321",
+                        "ana@mail.com"
+                )
+        );
+    }
+
 }
